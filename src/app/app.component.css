@@ -1,0 +1,16 @@
+.container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  font-size: 18px;
+}
+
+input {
+  font-size: 16px;
+  height: 40px;
+  width: 450px;
+
+}
