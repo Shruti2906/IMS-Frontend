@@ -1,0 +1,31 @@
+<div style="align-items: center;">
+
+<div *ngIf="loginSuccess === true && registrationSuccess !== true" style="color: green;">
+  <h2 style="align-items: center; padding-left: 37%;">Login Successful.!</h2>
+</div>
+<div *ngIf="loginFail !== '' && registrationSuccess !== true" style="color: rgb(235, 8, 8);">
+  <h2 style="align-items: center; padding-left: 37%;">Login Failed.!</h2>
+
+</div>
+</div>
+
+<div class="container border shadow" style="margin-top: 5%; padding-top: 2%; height: 300px; width:35%">
+  <form>
+   <div class="form-group">
+     <label for="exampleInputEmail1">Email address</label>
+     <input type="email" class="form-control" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+
+   </div>
+   <div class="form-group" style="padding-top: 2%;">
+     <label for="exampleInputPassword1">Password</label>
+     <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password" required>
+   </div>
+   <div class="form-group form-check" style="padding-top: 2%;">
+     <input type="checkbox" class="form-check-input" id="exampleCheck1">
+     <label class="form-check-label" for="exampleCheck1">Remember me</label>
+   </div>
+   <button type="submit" class="btn btn-primary" (click)="onSubmitLogin()" style="margin-top: 2%;">Login</button>
+ </form>
+
+ </div>
+
