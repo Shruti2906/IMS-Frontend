@@ -6,24 +6,23 @@
         <h2 style="padding-left: 37%;">Registration Failed.!</h2>
       </div>
 
-      <div class="container border shadow" style="margin-top: 5%; padding-top: 2%; height: 300px; width:35%">
-        <form>
+      <div class="container border shadow" style="margin-top: 5%; padding-top: 3%; height: 300px; width:35%">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmitReg()">
          <div class="form-group">
            <label for="exampleInputEmail1">Email address</label>
-           <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="email" aria-describedby="emailHelp" placeholder="Enter email">
+           <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Enter email">
 
          </div>
-         <div class="form-group" style="padding-top: 2%;">
+         <div class="form-group" style="padding-top: 3%;">
            <label for="exampleInputPassword1">Password</label>
-           <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="password" placeholder="Password">
+           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password" required>
          </div>
-         <div class="form-group form-check" style="padding-top: 2%;">
+         <!-- <div class="form-group form-check" style="padding-top: 2%;">
            <input type="checkbox" class="form-check-input" id="exampleCheck1">
            <label class="form-check-label" for="exampleCheck1">Remember me</label>
-         </div>
-         <button type="submit" class="btn btn-primary" (click)="onSubmitReg()" style="margin-top: 2%;">Register</button>
+         </div> -->
+         <button type="submit" class="btn btn-primary" style="margin-top: 3%;">Register</button>
        </form>
 
        </div>
 
-  

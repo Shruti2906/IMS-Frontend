@@ -19,7 +19,6 @@ export class LoginComponent {
 
   constructor(private http: HttpClient) {}
 
-  
   onSubmitLogin() {
     const data = {
       email: this.email,
@@ -41,7 +40,6 @@ export class LoginComponent {
         this.registrationFail = ''; // reset registration failure message
       }
     );
-
 
   }
 
