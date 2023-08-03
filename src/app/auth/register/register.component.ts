@@ -11,10 +11,7 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   registrationSuccess: boolean = false;
-  loginSuccess: boolean = false;
-
-  registrationFail: String = '';
-  loginFail: String = '';
+  registrationFail: boolean = false;
 
   myForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -33,12 +30,12 @@ export class RegisterComponent {
           console.log('Registration successfull.');
 
           this.registrationSuccess = true;
-          this.registrationFail = '';
+
         },
         (error) => {
           console.error('Registration failed:', error);
 
-          this.registrationFail = error;
+          this.registrationFail = true;
         }
       );
   }

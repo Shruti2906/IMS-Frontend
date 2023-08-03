@@ -1,8 +1,8 @@
 
-      <div *ngIf="registrationSuccess === true && loginSuccess !== true" style="color: green;">
+      <div *ngIf="registrationSuccess === true" style="color: green;">
         <h2 style="padding-left: 37%;">Registration Successful.!</h2>
       </div>
-      <div *ngIf="registrationFail !== '' && loginSuccess !== true" style="color: rgb(235, 8, 8);">
+      <div *ngIf="registrationFail === true " style="color: rgb(235, 8, 8);">
         <h2 style="padding-left: 37%;">Registration Failed.!</h2>
       </div>
 
