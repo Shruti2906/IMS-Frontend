@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import swal from 'sweetalert2';
 
-@Component({
+@Component({ 
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
@@ -11,10 +12,10 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   registrationSuccess: boolean = false;
-  loginSuccess: boolean = false;
-
-  registrationFail: String = '';
-  loginFail: String = '';
+  registrationFail: boolean = false;
+  
+   //swal.fire("Hello");
+  
 
   myForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -25,21 +26,22 @@ export class RegisterComponent {
 
   onSubmitReg() {
     const data = this.myForm.value;
-
+    
     this.http
       .post('https://ims-backend-bxe0.onrender.com/apis/users/register', data)
       .subscribe(
         (response) => {
-          console.log('Registration successfull.');
+          swal.fire('Thank You For Registering');
 
           this.registrationSuccess = true;
-          this.registrationFail = '';
+
         },
         (error) => {
-          console.error('Registration failed:', error);
+          swal.fire('Registration failed, Please Repeat the Process:', error);
 
-          this.registrationFail = error;
+          this.registrationFail = true;
         }
       );
+    
   }
 }

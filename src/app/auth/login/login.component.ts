@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -27,14 +28,14 @@ export class LoginComponent {
 
     this.http.post('https://ims-backend-bxe0.onrender.com/apis/users/login', data).subscribe(
       (response) => {
-        console.log('Login successfull.!');
+        swal.fire('Login successfull.!');
         this.registrationSuccess = false; // reset registration success message
         this.registrationFail = ''; // reset registration failure message
         this.loginSuccess = true;
         this.loginFail = '';
       },
       (error) => {
-        console.error('Login failed:', error),
+        swal.fire('Login failed!!!', error),
           (this.registrationSuccess = false); // reset registration success message
         this.loginFail = error;
         this.registrationFail = ''; // reset registration failure message
