@@ -15,7 +15,7 @@ body {
     margin-bottom: 40px;
   }
   
-  h1 {
+  h2 {
     font-size: 2.5rem;
   }
   
@@ -25,27 +25,24 @@ body {
   }
   
   .feature {
-    flex: 1;
+    flex: 10;
+    margin-left: 10px;
     text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    padding-bottom: 0px;
+    word-spacing: 10px;
+    background-color: rgb(172, 187, 204);
+    border-radius: 1px;
+    box-shadow: 2 2px 4px rgba(129, 112, 112, 0.1);
   }
-  
-  .feature img {
-    width: 80px;
-    height: 80px;
-  }
-  
-  h2 {
+ /*
+  h1 {
     margin-top: 10px;
     font-size: 1.5rem;
   }
+  */
   
   p {
     margin-top: 10px;
     color: #555;
   }
-  
-  /* Add animations using CSS animations or transitions */
