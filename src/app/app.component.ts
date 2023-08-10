@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent 
+{
   title = 'IMS-Frontend';
 
   email: string = '';
@@ -20,7 +21,7 @@ export class AppComponent {
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
   onSubmitReg() {
     const data = {
