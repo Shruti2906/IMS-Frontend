@@ -21,7 +21,7 @@ export class AppComponent
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onSubmitReg() {
     const data = {
