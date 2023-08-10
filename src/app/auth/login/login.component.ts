@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent {
       password: this.password,
     };
 
-    this.http.post('https://ims-backend-bxe0.onrender.com/apis/users/login', data).subscribe(
+    this.http.post(`${environment.api}/apis/users/login`, data).subscribe(
       (response) => {
         console.log('Login successfull.!');
         this.registrationSuccess = false; // reset registration success message

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,7 @@ export class RegisterComponent {
     const data = this.myForm.value;
 
     this.http
-      .post('https://ims-backend-bxe0.onrender.com/apis/users/register', data)
+      .post(`${environment.api}/apis/users/register`, data)
       .subscribe(
         (response) => {
           console.log('Registration successfull.');
