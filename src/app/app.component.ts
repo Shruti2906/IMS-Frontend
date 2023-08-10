@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,7 +9,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent 
+{
   title = 'IMS-Frontend';
 
   email: string = '';
@@ -19,7 +21,7 @@ export class AppComponent {
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onSubmitReg() {
     const data = {
@@ -66,6 +68,10 @@ export class AppComponent {
     );
 
 
+  }
+  onMainMenuClick(){
+    this.router.navigate(['/auth']);
+      
   }
 
 

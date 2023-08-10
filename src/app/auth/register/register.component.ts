@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'environments/environment';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -28,16 +29,17 @@ export class RegisterComponent {
       .post(`${environment.api}/apis/users/register`, data)
       .subscribe(
         (response) => {
-          console.log('Registration successfull.');
+          swal.fire('Thank You For Registering');
 
           this.registrationSuccess = true;
 
         },
         (error) => {
-          console.error('Registration failed:', error);
+          swal.fire('Registration failed, Please Repeat the Process:', error);
 
           this.registrationFail = true;
         }
       );
+
   }
 }

@@ -3,15 +3,16 @@
   padding-top: 1%;
   padding-left: 5%;
   color:#071015;
-  background-color: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-color: #c396a9;
+  background-color: rgb(161, 175, 122);
+  /*background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);*/
 }
 
-.footer-dark h3 {
+.footer-dark h2 {
   margin-top:0;
   margin-bottom:12px;
   font-weight:bold;
-  font-size:16px;
+  font-size:30px;
 }
 
 .footer-dark ul {
@@ -51,7 +52,7 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 
 }
 
 .footer-dark .item.text p {
-  opacity:0.6;
+  opacity:1;
   margin-bottom:0;
 }
 

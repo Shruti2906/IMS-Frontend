@@ -7,6 +7,7 @@
   </div>
   <div class="form-group" style="padding-top: 2%;">
     <label for="exampleInputPassword1">Password</label>
+    
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
   <div class="form-group form-check" style="padding-top: 2%;">
@@ -14,22 +15,28 @@
     <label class="form-check-label" for="exampleCheck1">Remember me</label>
   </div>
   <button type="submit" class="btn btn-primary" style="margin-top: 2%;">Submit</button>
+
 </form>
 
 </div>
+
+<li><a (click)="aboutUs('aboutus')">About us</a></li>    
+<button (click)="aboutUs('aboutus')">About us</button>
+
+<li><a (click)="aboutUs('aboutus')">About us</a></li>
 -->
 
 <app-navbar></app-navbar>
   <h2>User Auth</h2>
   <ul>
+    <li><a routerLink="auth">Main Menu</a></li>
     <li><a routerLink="auth/register">Register</a></li>
     <li><a routerLink="auth/login">Login</a></li>
   </ul>
-
+ 
 
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-
-
-
-
+<!--
+<app-aboutus></app-aboutus>
+-->

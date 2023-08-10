@@ -1,28 +1,35 @@
+  
+  <!-- <div *ngIf="registrationSuccess === true" style="color: green;">
+    <h2 style="padding-left: 37%;">Registration Successful.!</h2>
+  </div>
+  <div *ngIf="registrationFail === true " style="color: rgb(235, 8, 8);">
+    <h2 style="padding-left: 37%;">Registration Failed.!</h2>
+  </div>
+  <div>
+    <button (click)="onSubmitReg()">
+        Loginnn
+    </button> TRIAL SWAL 
+  </div> -->
+  <div class="container border shadow" style="margin-top: 5%; padding-top: 3%; height: 450px; width:35%">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmitReg()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Enter email">
 
-      <div *ngIf="registrationSuccess === true" style="color: green;">
-        <h2 style="padding-left: 37%;">Registration Successful.!</h2>
-      </div>
-      <div *ngIf="registrationFail === true " style="color: rgb(235, 8, 8);">
-        <h2 style="padding-left: 37%;">Registration Failed.!</h2>
-      </div>
 
-      <div class="container border shadow" style="margin-top: 5%; padding-top: 3%; height: 300px; width:35%">
-        <form [formGroup]="myForm" (ngSubmit)="onSubmitReg()">
-         <div class="form-group">
-           <label for="exampleInputEmail1">Email address</label>
-           <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Enter email">
+    </div>
+    <div class="form-group" style="padding-top: 3%;">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password" required>
 
-         </div>
-         <div class="form-group" style="padding-top: 3%;">
-           <label for="exampleInputPassword1">Password</label>
-           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password" required>
-         </div>
-         <!-- <div class="form-group form-check" style="padding-top: 2%;">
-           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-           <label class="form-check-label" for="exampleCheck1">Remember me</label>
-         </div> -->
-         <button type="submit" class="btn btn-primary" style="margin-top: 3%;">Register</button>
-       </form>
-
-       </div>
-
+      <br>
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Confirm Password" required> 
+    </div>
+    <!-- <div class="form-group form-check" style="padding-top: 2%;">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Remember me</label>
+    </div> -->
+    <button type="submit" (click)="onSubmitReg()" class="btn btn-primary" style="margin-top: 3%;">Register</button>
+  </form>
+  </div>
