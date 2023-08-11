@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'environments/environment';
 import swal from 'sweetalert2';
+<<<<<<< HEAD
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 
+=======
+>>>>>>> 8d54e2fcf38a93a0504de8d89c61a1fdd8ccdb57
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,7 +36,7 @@ export class LoginComponent {
       password: this.password,
     };
 
-    this.http.post('https://ims-backend-bxe0.onrender.com/apis/users/login', data).subscribe(
+    this.http.post(`${environment.api}/apis/users/login`, data).subscribe(
       (response) => {
         swal.fire('Login successfull.!');
         this.registrationSuccess = false; // reset registration success message

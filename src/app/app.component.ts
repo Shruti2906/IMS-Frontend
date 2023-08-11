@@ -23,10 +23,6 @@ export class AppComponent
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  aboutUs(pageName: string):void{
-    this.router.navigate([`${pageName}`]);
-  }
-
   onSubmitReg() {
     const data = {
       email: this.email,
@@ -72,6 +68,10 @@ export class AppComponent
     );
 
 
+  }
+  onMainMenuClick(){
+    this.router.navigate(['/auth']);
+      
   }
 
 
