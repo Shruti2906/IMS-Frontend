@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import swal from 'sweetalert2';
+import { FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -9,6 +13,8 @@ import swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+ 
 
   email: string = '';
   password: string = '';
@@ -18,7 +24,7 @@ export class LoginComponent {
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient)  { }
 
   onSubmitLogin() {
     const data = {
