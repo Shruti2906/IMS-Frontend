@@ -3,11 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
 import swal from 'sweetalert2';
-
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
 
 
 @Component({
@@ -17,8 +15,6 @@ import { Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
- 
-
   email: string = '';
   password: string = '';
   registrationSuccess: boolean = false;
@@ -27,7 +23,7 @@ export class LoginComponent {
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient)  { }
+  constructor(private http: HttpClient) {}
 
   onSubmitLogin() {
     const data = {
