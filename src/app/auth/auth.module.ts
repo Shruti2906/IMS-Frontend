@@ -8,12 +8,20 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FooterComponent } from '../footer/footer.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { AboutusComponent } from '../aboutus/aboutus.component';
 
 console.warn('auth module loaded.')
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LandingPageComponent,
+    FooterComponent,
+    NavbarComponent,
+    AboutusComponent,
   ],
   imports: [
     CommonModule,
