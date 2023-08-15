@@ -3,14 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
 import swal from 'sweetalert2';
-<<<<<<< HEAD
+
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 
-=======
->>>>>>> 8d54e2fcf38a93a0504de8d89c61a1fdd8ccdb57
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
