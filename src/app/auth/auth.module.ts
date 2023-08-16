@@ -12,6 +12,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 console.warn('auth module loaded.')
 @NgModule({
@@ -22,6 +23,7 @@ console.warn('auth module loaded.')
     FooterComponent,
     NavbarComponent,
     AboutusComponent,
+    StudentDashboardComponent,
   ],
   imports: [
     CommonModule,
