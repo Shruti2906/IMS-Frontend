@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { AboutusComponent } from '../aboutus/aboutus.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 // const routes: Routes = [
 //   {path: 'register', component: RegisterComponent},
@@ -22,16 +22,30 @@ import { AboutusComponent } from '../aboutus/aboutus.component';
 //   }
 // ];
 
+// const routes: Routes = [
+//   { path: '',component:LandingPageComponent, children: [
+//     { path: '', redirectTo: 'main', pathMatch: 'full'},
+//     { path:"main", component: LandingPageComponent},
+//     { path:"login", component: LoginComponent},
+//     { path:"register", component: RegisterComponent},
+//     { path: 'aboutus', component: AboutusComponent } // 7. Route for 'aboutus' component
+//       // { path: 'register', component: RegisterComponent }, // 5. Route for 'register' component
+//       // { path: 'login', component: LoginComponent }, // 6. Route for 'login' component
+//       // { path: 'aboutus', component: AboutusComponent } // 7. Route for 'aboutus' component
+//     ]
+//   }
+// ];
+
 const routes: Routes = [
-  { path: '',component:LandingPageComponent, children: [
-    { path: '', redirectTo: 'main', pathMatch: 'prefix'},
-    { path:"main", component: LandingPageComponent},
-    { path:"login", component: LoginComponent},
-    { path:"register", component: RegisterComponent},
-    { path: 'aboutus', component: AboutusComponent } // 7. Route for 'aboutus' component
-      // { path: 'register', component: RegisterComponent }, // 5. Route for 'register' component
-      // { path: 'login', component: LoginComponent }, // 6. Route for 'login' component
-      // { path: 'aboutus', component: AboutusComponent } // 7. Route for 'aboutus' component
+  {
+    path: '',
+    component: LandingPageComponent,
+    children: [
+      { path: '', redirectTo: 'main', pathMatch: 'full' },
+      { path: 'main', component: LandingPageComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'aboutus', component: AboutusComponent }
     ]
   }
 ];
