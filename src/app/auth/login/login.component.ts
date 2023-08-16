@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
 import swal from 'sweetalert2';
@@ -17,7 +19,8 @@ import { Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
- 
+  loginForm!:FormGroup
+  submitted1 = false;
 
   email: string = '';
   password: string = '';
@@ -27,7 +30,41 @@ export class LoginComponent {
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient)  { }
+
+  constructor(private http: HttpClient,private formBuilder: FormBuilder )  { } 
+
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email1:['', [Validators.required, Validators.minLength(11), Validators.email]],
+      password3:['',[Validators.required, Validators.minLength(8), this.passwordValidator]]
+    }); 
+  } 
+
+  onSubmit1() {
+    this.submitted1=true
+    
+    if(this.loginForm.invalid)
+    {
+      return 
+    } 
+    
+    //alert("Success");
+  }
+
+    // Custom password validator function
+  passwordValidator(control: AbstractControl): ValidationErrors | null {
+    const value: string = control.value;
+    const hasUppercase = /[A-Z]/.test(value);
+    const hasSpecialCharacter = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(value);
+
+    if (!hasUppercase || !hasSpecialCharacter) {
+      return { passwordRequirements: true };
+    }
+
+    return null;
+  }
+
 
   onSubmitLogin() {
     const data = {
