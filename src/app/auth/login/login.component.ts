@@ -5,22 +5,22 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'environments/environment';
 import swal from 'sweetalert2';
-
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
 
+
   loginForm!:FormGroup
   submitted1 = false;
+
 
   email: string = '';
   password: string = '';
@@ -29,6 +29,8 @@ export class LoginComponent {
 
   registrationFail: String = '';
   loginFail: String = '';
+  router: any;
+
 
 
   constructor(private http: HttpClient,private formBuilder: FormBuilder )  { } 
@@ -79,15 +81,13 @@ export class LoginComponent {
         this.registrationFail = ''; // reset registration failure message
         this.loginSuccess = true;
         this.loginFail = '';
+        this.router.navigate(['/studentdashboard']);
       },
       (error) => {
-        swal.fire('Login failed!!!', error),
-          (this.registrationSuccess = false); // reset registration success message
+        swal.fire('Login failed!!!', error), (this.registrationSuccess = false); // reset registration success message
         this.loginFail = error;
         this.registrationFail = ''; // reset registration failure message
       }
     );
-
   }
-
 }

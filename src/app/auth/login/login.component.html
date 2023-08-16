@@ -11,6 +11,7 @@
 
 <div class="container border shadow" style="margin-top: 5%; padding-top: 3%; height: 400px; width:35%">
 
+
       
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit1()">
 
@@ -37,12 +38,12 @@
   
 
     <!-- <div class="form-group form-check" style="padding-top: 2%;">
+
      <input type="checkbox" class="form-check-input" id="exampleCheck1">
      <label class="form-check-label" for="exampleCheck1">Remember me</label>
-    </div> -->
+   </div> -->
+   <button type="submit" class="btn btn-primary" (click)="onSubmitLogin()" style="margin-top: 3%;">Login</button>
+ </form>
 
-    
-    <button type="submit" class="btn btn-primary" (click)="onSubmitLogin()" style="margin-top: 3%;">Login</button>
-  </form>
-  
-</div>
+ </div>
+
