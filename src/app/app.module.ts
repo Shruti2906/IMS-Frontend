@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 // import { NavbarComponent } from './auth/navbar/navbar.component';
 // import { AboutusComponent } from './auth/aboutus/aboutus.component';
 import { AuthModule } from './auth/auth.module';
+import { NavbarComponent } from './dashboard/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     // FooterComponent,
     // NavbarComponent,
     // AboutusComponent
