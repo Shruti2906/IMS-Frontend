@@ -10,12 +10,12 @@ import { AppComponent } from './app.component';
 // import { NavbarComponent } from './auth/navbar/navbar.component';
 // import { AboutusComponent } from './auth/aboutus/aboutus.component';
 import { AuthModule } from './auth/auth.module';
-import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+
     // FooterComponent,
     // NavbarComponent,
     // AboutusComponent
@@ -26,6 +26,7 @@ import { NavbarComponent } from './dashboard/navbar/navbar.component';
     HttpClientModule,
     FormsModule,
     AuthModule,
+    DashboardModule,
     // RouterModule.forRoot([])
   ],
   providers: [],
