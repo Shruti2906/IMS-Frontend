@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,6 +12,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent 
 {
+  registerForm!:FormGroup
+  submitted = false;
+
+  loginForm!:FormGroup
+  submitted1 = false;
+
   title = 'IMS-Frontend';
 
   email: string = '';
@@ -21,8 +28,23 @@ export class AppComponent
   registrationFail: String = '';
   loginFail: String = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
 
+
+  constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder) {}
+
+  /*
+  onSubmit() {
+    this.submitted=true
+
+    if(this.registerForm.invalid)
+    {
+      return 
+    }
+
+    alert("Success");
+  }
+
+*/
   onSubmitReg() {
     const data = {
       email: this.email,
@@ -79,3 +101,11 @@ export class AppComponent
 
 
 }
+function onSubmitLogin() {
+  throw new Error('Function not implemented.');
+}
+
+function onMainMenuClick() {
+  throw new Error('Function not implemented.');
+}
+
