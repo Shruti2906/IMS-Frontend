@@ -9,6 +9,9 @@ import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {StorageService} from 'src/app/services/storage.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -22,8 +25,6 @@ export class LoginComponent {
   submitted1 = false;
 
 
-  email: string = '';
-  password: string = '';
   registrationSuccess: boolean = false;
   loginSuccess: boolean = false;
 
@@ -33,7 +34,7 @@ export class LoginComponent {
 
 
 
-  constructor(private http: HttpClient,private formBuilder: FormBuilder )  { }
+  constructor(private http: HttpClient,private formBuilder: FormBuilder, private storageService: StorageService, private Authsrevice:AuthService)  { }
 
 
   ngOnInit() {
@@ -70,25 +71,34 @@ export class LoginComponent {
 
   onSubmitLogin() {
     const {email1, password3} = this.loginForm.value;
-    const data = {
+    const reqBody = {
       email:email1,
       password: password3
     };
-    console.log(data)
-    this.http.post(`${environment.api}/apis/users/login`, data).subscribe(
-      (response) => {
-        swal.fire('Login successfull.!');
-        this.registrationSuccess = false; // reset registration success message
-        this.registrationFail = ''; // reset registration failure message
-        this.loginSuccess = true;
-        this.loginFail = '';
-        this.router.navigate(['/studentdashboard']);
-      },
-      (error) => {
-        swal.fire('Login failed!!!', error), (this.registrationSuccess = false); // reset registration success message
-        this.loginFail = error;
-        this.registrationFail = ''; // reset registration failure message
+    console.log(reqBody)
+
+    this.Authsrevice.logIn(reqBody).subscribe(
+      {
+        next: (data) => {
+              swal.fire('Login successfull.!');
+              this.registrationSuccess = false; // reset registration success message
+              this.registrationFail = ''; // reset registration failure message
+              this.loginSuccess = true;
+              this.loginFail = '';
+              this.storageService.setToken(data.token);
+              this.storageService.setRole(JSON.parse(atob(data.token.split('.')[1])).type);
+
+              this.router.navigate(['dashboard/course']);
+            //  this.router.navigate(['/../dashboard']);
+            // this.router.navigate(['/studentdashboard']);
+        },
+        error: (err) => {
+          swal.fire('Login failed!!!', err), (this.registrationSuccess = false); // reset registration success message
+          this.loginFail = err;
+          this.registrationFail = ''; // reset registration failure message
+        }
       }
     );
+
   }
 }

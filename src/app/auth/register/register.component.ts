@@ -4,6 +4,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 import { environment } from 'environments/environment';
 import swal from 'sweetalert2';
 import { LandingPageComponent } from '../landing-page/landing-page.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -26,8 +28,7 @@ submitted = false;
     password2: new FormControl('',Validators.required)
   });
 
-
-  constructor(private http: HttpClient,private formBuilder: FormBuilder )   {  }
+  constructor(private http: HttpClient,private formBuilder: FormBuilder, private Authservice:AuthService,private router: Router )   {  }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -82,23 +83,21 @@ submitted = false;
 
   onSubmitReg() {
     const {email, password} = this.registerForm.value;
-    const data = {email, password: password};
-    
-    this.http
-    .post(`${environment.api}/apis/users/register`, data)
-    .subscribe(
-      (response) => {
+    const reqBody = {email, password: password};
+
+    this.Authservice.register(reqBody).subscribe({
+
+      next: (data) => {
         swal.fire('Thank You For Registering');
-
         this.registrationSuccess = true;
-
+        this.router.navigate(['login']);
       },
-      (error) => {
-        swal.fire('Registration failed, Please Repeat the Process:', error);
-
+      error: (err) => {
+        swal.fire('Registration failed, Please Repeat the Process:', err);
         this.registrationFail = true;
       }
-      );
+
+    });
 
     }
 
