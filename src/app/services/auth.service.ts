@@ -13,10 +13,10 @@ export class AuthService {
 
   register(data:any): Observable<any> {
     console.log('in auth service');
-    return this.http.post(`${environment.api}/apis/users/register`,data, {observe: 'response'});
+    return this.http.post(`${environment.api}apis/users/register`,data, {observe: 'response'});
   }
 
   logIn(data: any): Observable<any> {
-    return this.http.post(`${environment.api}/apis/users/login`, data);
+    return this.http.post(`${environment.api}apis/users/login`, data);
   }
 }
