@@ -30,11 +30,10 @@ export class LoginComponent {
 
   registrationFail: String = '';
   loginFail: String = '';
-  router: any;
 
 
 
-  constructor(private http: HttpClient,private formBuilder: FormBuilder, private storageService: StorageService, private Authsrevice:AuthService)  { }
+  constructor(private http: HttpClient,private formBuilder: FormBuilder, private storageService: StorageService, private Authsrevice:AuthService, private router:Router)  { }
 
 
   ngOnInit() {
