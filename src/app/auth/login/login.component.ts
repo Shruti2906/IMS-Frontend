@@ -33,24 +33,24 @@ export class LoginComponent {
 
 
 
-  constructor(private http: HttpClient,private formBuilder: FormBuilder )  { } 
+  constructor(private http: HttpClient,private formBuilder: FormBuilder )  { }
 
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email1:['', [Validators.required, Validators.minLength(11), Validators.email]],
       password3:['',[Validators.required, Validators.minLength(8), this.passwordValidator]]
-    }); 
-  } 
+    });
+  }
 
   onSubmit1() {
     this.submitted1=true
-    
+
     if(this.loginForm.invalid)
     {
-      return 
-    } 
-    
+      return
+    }
+
     //alert("Success");
   }
 
@@ -69,11 +69,12 @@ export class LoginComponent {
 
 
   onSubmitLogin() {
+    const {email1, password3} = this.loginForm.value;
     const data = {
-      email: this.email,
-      password: this.password,
+      email:email1,
+      password: password3
     };
-
+    console.log(data)
     this.http.post(`${environment.api}/apis/users/login`, data).subscribe(
       (response) => {
         swal.fire('Login successfull.!');

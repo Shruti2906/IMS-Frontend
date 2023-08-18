@@ -1,4 +1,4 @@
-  
+
   <!-- <div *ngIf="registrationSuccess === true" style="color: green;">
     <h2 style="padding-left: 37%;">Registration Successful.!</h2>
   </div>
@@ -8,47 +8,47 @@
   <div>
     <button (click)="onSubmitReg()">
         Loginnn
-    </button> TRIAL SWAL 
-  </div> --> 
+    </button> TRIAL SWAL
+  </div> -->
 
   <div class="container border shadow" style="margin-top: 5%; padding-top: 3%; height: 600px; width:35%">
 
-      
+
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
 
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" [ngClass]="{'is-invalid':submitted && registerForm.controls['email'].errors}" placeholder="Enter email">
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" [ngClass]="{'is-invalid': submitted && registerForm.controls['email'].errors}" placeholder="Enter email">
           <div *ngIf="submitted && registerForm.controls['email'].errors" class="text-danger">
             <div *ngIf="submitted && registerForm.controls['email'].errors['required']">
               Enter valid Email address.
             </div>
-          </div>          
-        </div>
-
-      <div class="form-group" style="padding-top: 3%;">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password1" [ngClass]="{'is-invalid':submitted && registerForm.controls['password1'].errors}" placeholder="Password" required>
-      <div *ngIf="submitted && registerForm.controls['password1'].errors" class="text-danger">
-        <div *ngIf="submitted && registerForm.controls['password1'].errors['required']">
-          Password must contain at least one uppercase letter and one special character.
-        </div>
-      </div> 
-      </div> 
-      
-      <div class="form-group" style="padding-top: 3%;">
-      <label for="exampleInputPassword1">Confirm Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password2" [ngClass]="{'is-invalid':submitted && registerForm.controls['password2'].errors}" placeholder="Confirm Password" required> 
-      <div *ngIf="submitted && registerForm.controls['password2'].errors" class="text-danger">
-        <div *ngIf="submitted && registerForm.controls['password2'].errors['required']">
-          Please enter same password.
-          <div *ngIf="submitted && registerForm.hasError('passwordMismatch')">
-            
           </div>
         </div>
-      </div>  
-    </div>
+
+        <div class="form-group" style="padding-top: 3%;">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" [ngClass]="{'is-invalid': submitted && registerForm.controls['password1'].errors}" placeholder="Password" required>
+          <div *ngIf="submitted && registerForm.controls['password'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['password'].errors['required']">
+              Password must contain at least one uppercase letter and one special character.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="padding-top: 3%;">
+          <label for="exampleInputPassword1">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password2" [ngClass]="{'is-invalid': submitted && registerForm.controls['password2'].errors}" placeholder="Confirm Password" required>
+          <div *ngIf="submitted && registerForm.controls['password2'].errors" class="text-danger">
+            <div *ngIf="submitted && registerForm.controls['password2'].errors['required']">
+              Please enter the same password.
+              <div *ngIf="submitted && registerForm.hasError('passwordMismatch')">
+                Passwords do not match.
+              </div>
+            </div>
+          </div>
+        </div>
     <!-- <div class="form-group form-check" style="padding-top: 2%;">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Remember me</label>

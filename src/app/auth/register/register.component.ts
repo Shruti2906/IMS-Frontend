@@ -22,33 +22,33 @@ submitted = false;
 
   myForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password1: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
     password2: new FormControl('',Validators.required)
   });
 
 
   constructor(private http: HttpClient,private formBuilder: FormBuilder )   {  }
-  
+
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email:['', [Validators.required, Validators.minLength(11), Validators.email]],
-      password1:['',[Validators.required, Validators.minLength(8), this.passwordValidator]],
+      password:['',[Validators.required, Validators.minLength(8), this.passwordValidator]],
       password2:['',[Validators.required, Validators.minLength(8), this.passwordValidator]],
-    }, { validator: this.passwordMatchValidator }); 
-  } 
-  
+    }, { validator: this.passwordMatchValidator });
+  }
+
 
   onSubmit() {
     this.submitted=true
-    
+
     if(this.registerForm.invalid)
     {
-      return 
-    } 
-    
+      return
+    }
+
     //alert("Success");
   }
-  
+
   /*
     */
 
@@ -66,10 +66,10 @@ submitted = false;
   }
 
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-    const password1 = control.get('password1');
+    const password = control.get('password');
     const password2 = control.get('password2');
 
-    if (!password1 || !password2 || password1.value !== password2.value) {
+    if (!password || !password2 || password.value !== password2.value) {
       return { passwordMismatch: true };
     }
     /*
@@ -79,27 +79,28 @@ submitted = false;
     */
     return null;
   }
-  
+
   onSubmitReg() {
-    const data = this.myForm.value;
+    const {email, password} = this.registerForm.value;
+    const data = {email, password: password};
     
     this.http
     .post(`${environment.api}/apis/users/register`, data)
     .subscribe(
       (response) => {
         swal.fire('Thank You For Registering');
-        
+
         this.registrationSuccess = true;
-        
+
       },
       (error) => {
         swal.fire('Registration failed, Please Repeat the Process:', error);
-        
+
         this.registrationFail = true;
       }
       );
-      
+
     }
-    
-    
+
+
 }
