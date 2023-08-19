@@ -11,6 +11,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ContactComponent } from './contact/contact.component';
 
 console.warn('auth module loaded.');
 @NgModule({
@@ -21,6 +22,7 @@ console.warn('auth module loaded.');
     FooterComponent,
     NavbarComponent,
     AboutusComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,

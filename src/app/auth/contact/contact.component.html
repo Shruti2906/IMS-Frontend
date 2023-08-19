@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <form class="content" [formGroup]="contactForm" (ngSubmit)="submitData()">
+    <h3 class="text-center">Contact Us</h3>
+
+    <div class="row">
+      <!--First name-->
+    <div class="mt-2 mb-2 col-lg-5 col-5">
+      <input type="text" formControlName="firstname" class="form-control"  placeholder="First Name">
+      <div *ngIf="firstname.invalid && firstname.touched">
+        <span class="error" *ngIf="firstname.errors?.required">First Name is required</span>
+        <span class="error" *ngIf="firstname.errors?.pattern">Enter only characters</span>
+
+      </div>
+    </div>
+
+      <!--Last name-->
+    <div class="mt-2 mb-2 col-lg-5 col-5">
+      <input type="text" formControlName="lastname" class="form-control"  placeholder="Last Name">
+      <div *ngIf="lastname.invalid && lastname.touched">
+        <span class="error" *ngIf="lastname.errors?.required">Last Name is required</span>
+        <span class="error" *ngIf="lastname.errors?.pattern">Enter only characters</span>
+
+      </div>
+    </div>
+      <!--Email-->
+    <div class="mt-2 mb-2 col-lg-10 col-10">
+      <input type="email" formControlName="email" class="form-control"  placeholder="Email">
+      <div *ngIf="email.invalid && email.touched">
+        <span class="error" *ngIf="email.errors?.required">Email is required</span>
+        <span class="error" *ngIf="email.errors?.pattern">Enter Valid Email address</span>
+
+      </div>
+    </div>
+      <!--Mobile no-->
+    <div class="mt-2 mb-2 col-lg-10 col-10">
+      <input type="number"  formControlName="mobno" class="form-control"  placeholder="Mobno">
+      <div *ngIf="mobno.invalid && email.touched">
+        <span class="error" *ngIf="mobno.errors?.required">Mob no is required</span>
+        <span class="error" *ngIf="mobno.errors?.pattern">Enter Valid mobile no</span>
+
+      </div>
+    </div>
+
+    <div class="col-lg-10 col-10">
+      <button class="btn" [disabled]="contactForm.invalid">Submit</button>
+    </div>
+
+  </div>
+  </form>
+</div>
