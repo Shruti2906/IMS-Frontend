@@ -11,7 +11,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  {path:"auth", loadChildren:()=>import('./auth/auth.module').then(mod=>mod.AuthModule)},
+  { path: "auth", loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule) },
   { path: "dashboard", loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), }
 ];
 

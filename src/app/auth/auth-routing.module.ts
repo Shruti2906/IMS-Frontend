@@ -42,8 +42,7 @@ const routes: Routes = [
     path: '',
     component: LandingPageComponent,
     children: [
-      { path: '', redirectTo: 'main', pathMatch: 'full' },
-      { path: 'main', component: LandingPageComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'prefix' },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'aboutus', component: AboutusComponent },

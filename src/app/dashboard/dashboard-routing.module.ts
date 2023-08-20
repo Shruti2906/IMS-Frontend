@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       // { path: 'profile', component: ProfileComponent},
       // { path: 'dashboard', component: DashboardComponent},
-      { path: 'auth',loadChildren: () =>import('../auth/auth.module').then((m) => m.AuthModule)},
+      // { path: 'auth',loadChildren: () =>import('../auth/auth.module').then((m) => m.AuthModule)},
       { path: "course", loadChildren: () => import('./course/course.module').then(m => m.CourseModule) },
     ]
 }
