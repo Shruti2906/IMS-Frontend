@@ -1,0 +1,15 @@
+.pass-box
+{
+    position: relative;
+
+}
+
+.eyeicon
+{
+    position: absolute;
+    right: 590px;
+    margin-top: -36px;
+    cursor: pointer;
+}
+
+

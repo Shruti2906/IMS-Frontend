@@ -28,12 +28,14 @@
 
   <div class="form-group" style="padding-top: 3%;">
   <label for="exampleInputPassword1">Password</label>
-  <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password3" [ngClass]="{'is-invalid':submitted1 && loginForm.controls['password3'].errors}" placeholder="Password" required>
+  <input [type]="changetype3?'password':'text'" class="form-control" id="exampleInputPassword1" formControlName="password3" [ngClass]="{'is-invalid':submitted1 && loginForm.controls['password3'].errors}" placeholder="Password" required>
+  <span class="eyeicon" (click)="viewpass3()"><i [ngClass]="visible3?'fa fa-eye':'fa fa-eye-slash'"></i>
+  </span>
   <div *ngIf="submitted1 && loginForm.controls['password3'].errors" class="text-danger">
     <div *ngIf="submitted1 && loginForm.controls['password3'].errors['required']">
       Please enter correct password.
     </div>
-  </div> 
+  </div>  
   </div> 
   
 

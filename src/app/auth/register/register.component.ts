@@ -16,6 +16,7 @@ export class RegisterComponent {
 
 registerForm!:FormGroup
 submitted = false;
+showPassword: boolean = false;
 
   email: string = '';
   password: string = '';
@@ -28,7 +29,24 @@ submitted = false;
     password2: new FormControl('',Validators.required)
   });
 
+
   constructor(private http: HttpClient,private formBuilder: FormBuilder, private Authservice:AuthService,private router: Router )   {  }
+
+  
+  visible1:boolean = true;
+  visible2:boolean = true;
+  changetype1:boolean =true;
+  changetype2:boolean =true;
+
+  viewpass1(){
+    this.visible1 = !this.visible1;
+    this.changetype1 = !this.changetype1;
+  }
+
+  viewpass2(){
+    this.visible2 = !this.visible2;
+    this.changetype2 = !this.changetype2;
+  }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -50,9 +68,7 @@ submitted = false;
     //alert("Success");
   }
 
-  /*
-    */
-
+ 
   // Custom password validator function
   passwordValidator(control: AbstractControl): ValidationErrors | null {
     const value: string = control.value;

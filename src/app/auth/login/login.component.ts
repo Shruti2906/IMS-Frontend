@@ -36,6 +36,15 @@ export class LoginComponent {
   constructor(private http: HttpClient,private formBuilder: FormBuilder, private storageService: StorageService, private Authsrevice:AuthService, private router:Router)  { }
 
 
+  visible3:boolean = true;
+  changetype3:boolean =true;
+
+  viewpass3(){
+    this.visible3 = !this.visible3;
+    this.changetype3 = !this.changetype3;
+  }
+
+  
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email1:['', [Validators.required, Validators.minLength(11), Validators.email]],
