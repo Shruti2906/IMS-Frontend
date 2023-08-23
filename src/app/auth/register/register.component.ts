@@ -86,14 +86,16 @@ showPassword: boolean = false;
     const password = control.get('password');
     const password2 = control.get('password2');
 
-    if (!password || !password2 || password.value !== password2.value) {
+    if (!password?.value || !password2?.value || password.value !== password2.value) {
       return { passwordMismatch: true };
     }
-    /*
-    if (password1.value !== password2.value) {
+
+    
+    else if (password.value !== password2.value) {
       return { passwordMismatch: true };
     }
-    */
+    
+    
     return null;
   }
 
@@ -117,5 +119,8 @@ showPassword: boolean = false;
 
     }
 
-
+    //Already have an account? Login Now!
+    navigateToLogin() {
+      this.router.navigate(['/login']); 
+    }
 }

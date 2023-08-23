@@ -109,4 +109,9 @@ export class LoginComponent {
     );
 
   }
+
+  //Dont have an account? Register Now!
+  navigateToRegister() {
+    this.router.navigate(['/register']); 
+  }
 }
