@@ -32,8 +32,8 @@
   <span class="eyeicon" (click)="viewpass3()"><i [ngClass]="visible3?'fa fa-eye':'fa fa-eye-slash'"></i>
   </span>
   <div *ngIf="submitted1 && loginForm.controls['password3'].errors" class="text-danger">
+    Please enter correct password.
     <div *ngIf="submitted1 && loginForm.controls['password3'].errors['required']">
-      Please enter correct password.
     </div>
   </div>  
   </div> 
