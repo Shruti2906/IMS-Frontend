@@ -5,13 +5,12 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  constructor(private storageService: StorageService, private router: Router) {}
 
-  constructor(private storageService:StorageService,private router:Router) { }
-
-  public getRole(){
+  public getRole() {
     return this.storageService.getRole();
   }
 }

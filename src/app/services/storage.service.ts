@@ -19,6 +19,4 @@ export class StorageService {
   public getRole(){
     return localStorage.getItem("role");
   }
-
-
 }
