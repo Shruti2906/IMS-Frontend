@@ -1,3 +1,10 @@
+/*Responsive */
+/* Example of a media query for screens up to 768px wide */
+@media screen and (max-width: 768px) {
+    /* Your responsive styles for smaller screens go here */
+  }
+  
+
 
 navbar navbar-expand-lg bg-body-tertiary
 {

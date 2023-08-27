@@ -1,22 +1,18 @@
 .pass-box
 {
     position: relative;
-
 }
 
 .eyeicon
 {
     position: absolute;
-    right: 590px;
+    right: 675px;
     margin-top: -36px;
     cursor: pointer;
 }
-
 
 .underlined-word{
     text-decoration: underline;
       cursor: pointer;  
       color: blue;
 }
-
-
