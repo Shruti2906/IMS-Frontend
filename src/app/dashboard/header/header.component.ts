@@ -13,4 +13,7 @@ export class HeaderComponent {
   public getRole() {
     return this.storageService.getRole();
   }
+  public logout(){
+    this.storageService.clear();
+  }
 }

@@ -19,4 +19,8 @@ export class StorageService {
   public getRole(){
     return localStorage.getItem("role");
   }
+
+  public clear(){
+    localStorage.clear();
+  }
 }

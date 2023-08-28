@@ -77,7 +77,7 @@
           <a class="nav-link active" href="#">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Logout</a>
+          <a class="nav-link active" (click)="logout()" [routerLink]="['../login']">Logout</a>
         </li>
       </ul>
 
