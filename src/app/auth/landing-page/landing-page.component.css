@@ -3,7 +3,7 @@ https://www.youtube.com/watch?v=oLgtucwjVII
 https://www.youtube.com/watch?v=GdrbE-s5DgQ
 */
 
-*{
+* {
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -11,45 +11,46 @@ https://www.youtube.com/watch?v=GdrbE-s5DgQ
     box-sizing: border-box;
 }
 
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-      }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
 
-nav{
+nav {
     background: #0f4975;
     height: 80px;
     width: 100%;
     overflow: hidden;
+    display: flex;
 }
 
 nav .logo {
     float: left;
     padding: 14px 14px;
     color: white;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 50px;
     line-height: 80px;
     margin-left: 25px;
     padding: 0;
-  }
-
-nav ul{
-    list-style-type: none;
-      margin: 0;
-      padding: 0;
-      float: right;
 }
- 
-nav ul li{
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
 
-nav ul li a{
+nav ul li a {
     color: white;
     font-size: 25px;
     padding: 7px 13px;
@@ -59,32 +60,44 @@ nav ul li a{
 
 router-outlet {
     width: 100%;
-    max-width: 1200px; /* Adjust this value as needed */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-  }
+}
 
-a.active, a:hover{
+a.active,
+a:hover {
     background: #1c5785;
     transition: .5s;
     text-decoration: underline;
+    border-radius: 10px;
 }
 
 nav .floatleft {
-      float: left;
+    float: left;
+    margin-left: 35px;
 }
 
-nav .floatright{
+nav .floatright {
     float: right;
     margin-left: 900px;
     margin-right: 20px;
 }
 
-
-.toggle_btn{
-    color: rgb(122, 23, 23);
-    font-size: 1.5rem;
+.togglebtn {
+    color: rgb(255, 255, 255);
+    font-size: 35px;
     cursor: pointer;
+    margin: 0;
     display: none;
 }
+
+
+/* Responsive design */
+@media(max-width: 992px) {
+    .nav .togglebtn{
+        display: block;
+    }
+}
+
