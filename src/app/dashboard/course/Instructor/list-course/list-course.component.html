@@ -1,0 +1,12 @@
+
+<router-outlet></router-outlet>
+<div class="course-list-container">
+    <h2>All Courses</h2>
+    <div class="course-list">
+      <div class="course-card" *ngFor="let course of courses">
+        <h3>{{ course.name }}</h3>
+        <p>{{ course.description }}</p>
+        <p>Fees: ${{ course.fees }}</p>
+      </div>
+    </div>
+  </div>
