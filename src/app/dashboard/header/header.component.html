@@ -9,7 +9,7 @@
   "
 >
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Linkcode</a>
+    <a class="navbar-brand" href="dashboard/course">Linkcode</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -24,71 +24,48 @@
     <div class="collapse navbar-collapse" *ngIf="getRole() === 'ADMIN'" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="#">view courses</a>
+          <a class="nav-link active" href="dashboard/course/list-course">view courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">view enquiries</a>
+          <a class="nav-link active" href="dashboard/course">view enquiries</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Profile</a>
+          <a class="nav-link active" href="dashboard/course">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Logout</a>
+          <a class="nav-link active" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
         </li>
       </ul>
 
-      <!-- <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="../../register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="../../login">Login</a>
-        </li>
-      </ul> -->
     </div>
     <div class="collapse navbar-collapse" *ngIf="getRole() === 'INSTRUCTOR'" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="#">view courses</a>
+          <a class="nav-link active" href="dashboard/course/list-course">view courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Profile</a>
+          <a class="nav-link active" href="dashboard/course">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Logout</a>
+          <a class="nav-link active" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
         </li>
       </ul>
 
-      <!-- <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="../../register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="../../login">Login</a>
-        </li>
-      </ul> -->
     </div>
     <div class="collapse navbar-collapse" *ngIf="getRole() === 'STUDENT'" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/list-course">view courses</a>
+          <a class="nav-link active" href="dashboard/course/list-course">view courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Profile</a>
+          <a class="nav-link active" href="dashboard/course">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" (click)="logout()" [routerLink]="['../login']">Logout</a>
+          <a class="nav-link active" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
+          <!-- <a class="nav-link active" (click)="logout()" [routerLink]="['./auth/login']">Logout</a> -->
         </li>
       </ul>
 
-      <!-- <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="../../register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="../../login">Login</a>
-        </li>
-      </ul> -->
     </div>
   </div>
 </nav>
