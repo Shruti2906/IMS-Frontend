@@ -1,5 +1,12 @@
 
 <router-outlet></router-outlet>
+<div class="container">
+  <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search for a course...">
+      <button type="submit" class="search-button">Search</button>
+    </div>
+    <button class="add-course-button" (click)="navigateToAddCourse()">Add new course</button>
+</div>
 <div class="course-list-container">
     <h2>All Courses</h2>
     <div class="course-list">

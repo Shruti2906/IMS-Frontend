@@ -11,4 +11,7 @@ export class CoursesService {
   getCourses(): Observable<any[]> {
     return this.http.get<any[]>('https://ims-backend-bxe0.onrender.com/apis/courses/getcourses');
   }
+  addCourse(bodyData: any ): Observable<any> {
+    return this.http.post('https://ims-backend-bxe0.onrender.com/apis/courses/addcourse',bodyData);
+  }
 }

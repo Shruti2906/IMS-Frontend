@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CoursesService } from 'src/app/services/courses.service';// Import your service
+import { ActivatedRoute, Router } from '@angular/router';
+import { CoursesService } from 'src/app/services/courses.service';// Imported service
+
 
 @Component({
   selector: 'app-list-course',
@@ -8,8 +10,9 @@ import { CoursesService } from 'src/app/services/courses.service';// Import your
 })
 export class ListCourseComponent implements OnInit {
   courses: any[] = [];
+  route: ActivatedRoute | null | undefined;
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(private coursesService: CoursesService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCourses();
@@ -27,4 +30,10 @@ export class ListCourseComponent implements OnInit {
         }
       );
   }
+  
+  navigateToAddCourse() {
+    this.router.navigate(['/dashboard/course/add-courses']);
+  }
+
+
 }

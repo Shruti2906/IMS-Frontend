@@ -5,6 +5,7 @@ import { CourseRoutingModule } from './course-routing.module';
 import { CourseComponent } from './course.component';
 import { ListCourseComponent } from './Instructor/list-course/list-course.component';
 import { AddCoursesComponent } from './Instructor/add-courses/add-courses.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AddCoursesComponent } from './Instructor/add-courses/add-courses.compon
   ],
   imports: [
     CommonModule,
-    CourseRoutingModule
+    CourseRoutingModule,
+    FormsModule
   ]
 })
 export class CourseModule { }

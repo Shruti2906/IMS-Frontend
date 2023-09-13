@@ -1,1 +1,18 @@
-<p>add-courses works!</p>
+<div class="container">
+    <h1>Add Course</h1>
+    <form id="course-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+
+      
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
+      
+      <label for="fees">Fees:</label>
+      <input type="number" id="fees" name="fees" [(ngModel)]="fees" [ngModelOptions]="{standalone: true}">
+      
+      <button type="submit" (click)="onSubmit()" >Add Course</button>
+    </form>
+  </div>
+
+
