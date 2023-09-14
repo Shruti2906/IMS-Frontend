@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';  
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +12,6 @@ export class CoursesService {
     return this.http.get<any[]>('https://ims-backend-bxe0.onrender.com/apis/courses/getcourses');
   }
   addCourse(bodyData: any ): Observable<any> {
-    return this.http.post('https://ims-backend-bxe0.onrender.com/apis/courses/addcourse',bodyData);
+    return this.http.post('https://ims-backend-bxe0.onrender.com/apis/courses/addcourses',bodyData);
   }
 }
