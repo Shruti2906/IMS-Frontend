@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { CoursesService } from 'src/app/services/courses.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-add-courses',
   templateUrl: './add-courses.component.html',
   styleUrls: ['./add-courses.component.css']
 })
 export class AddCoursesComponent {
-  
+  route: ActivatedRoute | null | undefined;
   courseForm!: FormGroup;
    
   constructor(private coursesService: CoursesService, 
-    private fb: FormBuilder) { 
+    private fb: FormBuilder, private router: Router) { 
       this.courseForm = this.fb.group({
         name: ['', Validators.required],
         description : ['', Validators.required],
@@ -49,5 +50,9 @@ export class AddCoursesComponent {
       this.courseForm.controls[controlName].markAllAsTouched();
     }
   }
+ }
+ navigateTolistCourses(){
+  this.restForm();
+  this.router.navigate(['/dashboard/course/list-course']);
  }
 }

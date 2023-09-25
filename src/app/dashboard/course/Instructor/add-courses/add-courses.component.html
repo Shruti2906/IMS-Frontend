@@ -7,7 +7,7 @@
         <label for="name">Name:</label>
         <input type="text" id="name" formControlName="name">
         <div *ngIf="courseForm.get('name')?.invalid && (courseForm.get('name')?.dirty || courseForm.get('name')?.touched)" class="error-message">
-          Name is required.
+         <span class="error-text">Name is required.</span>
         </div>
       </div>
   
@@ -16,7 +16,7 @@
         <label for="description">Description:</label>
         <textarea id="description" formControlName="description"></textarea>
         <div *ngIf="courseForm.get('description')?.invalid && (courseForm.get('description')?.dirty || courseForm.get('description')?.touched)" class="error-message">
-          Description is required.
+          <span class="error-text"> Description is required.</span>
         </div>
       </div>
   
@@ -25,12 +25,13 @@
         <label for="fees">Fees:</label>
         <input type="number" id="fees" formControlName="fees" min="0">
         <div *ngIf="courseForm.get('fees')?.invalid && (courseForm.get('fees')?.dirty || courseForm.get('fees')?.touched)" class="error-message">
-          Fees is required and must be a positive number.
+          <span class="error-text">Fees is required and must be a positive number.</span>
         </div>
       </div>
   
       <!-- Submit Button -->
       <button type="submit">Add Course</button>
+      <button type="back" (click)=" navigateTolistCourses()" >Go Back</button>
     </form>
   </div>
   

@@ -37,7 +37,15 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
 }
-
+button[type="back"] {
+  background-color: #47c820; /* Adjust the button color as needed */
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
 /* Added responsive styles */
 @media (max-width: 768px) {
   .container {
@@ -49,4 +57,7 @@ button[type="submit"] {
   textarea {
     font-size: 16px;
   }
+}
+.error-text {
+  color: red;
 }
