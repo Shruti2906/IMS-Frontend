@@ -10,9 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddCoursesComponent {
   route: ActivatedRoute | null | undefined;
   courseForm!: FormGroup;
-   
-  constructor(private coursesService: CoursesService, 
-    private fb: FormBuilder, private router: Router) { 
+
+  constructor(private coursesService: CoursesService,
+    private fb: FormBuilder, private router: Router) {
       this.courseForm = this.fb.group({
         name: ['', Validators.required],
         description : ['', Validators.required],
@@ -51,8 +51,5 @@ export class AddCoursesComponent {
     }
   }
  }
- navigateTolistCourses(){
-  this.restForm();
-  this.router.navigate(['/dashboard/course/list-course']);
- }
+
 }

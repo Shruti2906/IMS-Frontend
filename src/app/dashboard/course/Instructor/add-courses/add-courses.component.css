@@ -38,8 +38,8 @@ button[type="submit"] {
   cursor: pointer;
 }
 button[type="back"] {
-  background-color: #47c820; /* Adjust the button color as needed */
-  color: black;
+  background-color: #007bff; /* Adjust the button color as needed */
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -51,7 +51,7 @@ button[type="back"] {
   .container {
     max-width: 100%;
   }
-  
+
   input[type="text"],
   input[type="number"],
   textarea {
