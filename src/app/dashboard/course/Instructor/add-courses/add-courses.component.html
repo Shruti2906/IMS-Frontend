@@ -1,18 +1,41 @@
-<div class="container">
-    <h1>Add Course</h1>
-    <form id="course-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
 
-      
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
-      
-      <label for="fees">Fees:</label>
-      <input type="number" id="fees" name="fees" [(ngModel)]="fees" [ngModelOptions]="{standalone: true}">
-      
-      <button type="submit" (click)="onSubmit()" >Add Course</button>
+   <div class="container">
+    <h1>Add Course</h1>
+    <form id ="course-form" [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="courseForm.get('name')?.invalid && (courseForm.get('name')?.dirty || courseForm.get('name')?.touched)" class="error-message">
+          Name is required.
+        </div>
+      </div>
+  
+      <!-- Description Field -->
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+        <div *ngIf="courseForm.get('description')?.invalid && (courseForm.get('description')?.dirty || courseForm.get('description')?.touched)" class="error-message">
+          Description is required.
+        </div>
+      </div>
+  
+      <!-- Fees Field -->
+      <div class="form-group">
+        <label for="fees">Fees:</label>
+        <input type="number" id="fees" formControlName="fees" min="0">
+        <div *ngIf="courseForm.get('fees')?.invalid && (courseForm.get('fees')?.dirty || courseForm.get('fees')?.touched)" class="error-message">
+          Fees is required and must be a positive number.
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit">Add Course</button>
     </form>
   </div>
+  
+  
+  
+   
 
 
