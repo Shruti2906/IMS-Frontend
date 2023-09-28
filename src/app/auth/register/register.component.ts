@@ -75,14 +75,14 @@ showPassword: boolean = false;
     const password = control.get('password');
     const password2 = control.get('password2');
      
-    if (!password?.value || !password2?.value) {
+    if (!password?.value || !password2?.value || password.value !== password2.value) {
      
       return { passwordMismatch: true };
     }
 
     
     else if (password.value !== password2.value) {
-      password2.setErrors({ passwordMismatch: true });
+       
       return { passwordMismatch: true };
     }
     
