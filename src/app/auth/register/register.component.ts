@@ -52,20 +52,8 @@ showPassword: boolean = false;
     this.registerForm = this.formBuilder.group({
       email:['', [Validators.required, Validators.minLength(11), Validators.email]],
       password:['',[Validators.required, Validators.minLength(8), this.passwordValidator]],
-      password2:['',[Validators.required, Validators.minLength(8), this.passwordValidator]],
+      password2:['',[Validators.required, Validators.minLength(8)]],
     }, { validator: this.passwordMatchValidator });
-  }
-
-
-  onSubmit() {
-    this.submitted=true
-
-    if(this.registerForm.invalid)
-    {
-      return
-    }
-
-    //alert("Success");
   }
 
  
@@ -83,28 +71,35 @@ showPassword: boolean = false;
   }
 
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+
     const password = control.get('password');
     const password2 = control.get('password2');
-
-    if (!password?.value || !password2?.value || password.value !== password2.value) {
+     
+    if (!password?.value || !password2?.value) {
+     
       return { passwordMismatch: true };
     }
 
     
     else if (password.value !== password2.value) {
+      password2.setErrors({ passwordMismatch: true });
       return { passwordMismatch: true };
     }
     
     
     return null;
   }
-
   onSubmitReg() {
-    const {email, password} = this.registerForm.value;
-    const reqBody = {email, password: password};
-
+    this.submitted = true;
+  
+    if (this.registerForm.invalid) {
+      return;
+    }
+  
+    const { email, password } = this.registerForm.value;
+    const reqBody = { email, password: password };
+  
     this.Authservice.register(reqBody).subscribe({
-
       next: (data) => {
         swal.fire('Thank You For Registering');
         this.registrationSuccess = true;
@@ -114,10 +109,8 @@ showPassword: boolean = false;
         swal.fire('Registration failed, Please Repeat the Process:', err);
         this.registrationFail = true;
       }
-
     });
-
-    }
+  }
 
     //Already have an account? Login Now!
     navigateToLogin() {

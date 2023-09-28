@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="box">
 
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmitReg()">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
@@ -66,7 +66,7 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Remember me</label>
     </div> -->
-      <button type="submit" (click)="onSubmitReg()" class="btn btn-primary" style="margin-top: 3%;">Register</button>
+      <button type="submit" class="btn btn-primary" style="margin-top: 3%;">Register</button>
     <br>
     <br>
        
