@@ -44,23 +44,12 @@ export class LoginComponent {
     this.changetype3 = !this.changetype3;
   }
 
-  
+
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email1:['', [Validators.required, Validators.minLength(11), Validators.email]],
       password3:['',[Validators.required, Validators.minLength(8), this.passwordValidator]]
     });
-  }
-
-  onSubmit1() {
-    this.submitted1=true
-
-    if(this.loginForm.invalid)
-    {
-      return
-    }
-
-    //alert("Success");
   }
 
     // Custom password validator function
@@ -78,6 +67,12 @@ export class LoginComponent {
 
 
   onSubmitLogin() {
+    this.submitted1=true
+
+    if(this.loginForm.invalid)
+    {
+      return;
+    }
     const {email1, password3} = this.loginForm.value;
     const reqBody = {
       email:email1,
@@ -110,8 +105,4 @@ export class LoginComponent {
 
   }
 
-  //Dont have an account? Register Now!
-  navigateToRegister() {
-    this.router.navigate(['/register']); 
-  }
 }
