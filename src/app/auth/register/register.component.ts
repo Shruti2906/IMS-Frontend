@@ -32,7 +32,7 @@ showPassword: boolean = false;
 
   constructor(private http: HttpClient,private formBuilder: FormBuilder, private Authservice:AuthService,private router: Router )   {  }
 
-  
+
   visible1:boolean = true;
   visible2:boolean = true;
   changetype1:boolean =true;
@@ -56,7 +56,7 @@ showPassword: boolean = false;
     }, { validator: this.passwordMatchValidator });
   }
 
- 
+
   // Custom password validator function
   passwordValidator(control: AbstractControl): ValidationErrors | null {
     const value: string = control.value;
@@ -73,29 +73,29 @@ showPassword: boolean = false;
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
     const password2 = control.get('password2');
-  
+
     if (!password || !password2) {
       return { passwordMismatch: true };
     }
-  
+
     if (password2.value && password.value !== password2.value) {
       password2.setErrors({ passwordMismatch: true });
       return { passwordMismatch: true };
     }
-  
+
     return null;
   }
-  
+
   onSubmitReg() {
     this.submitted = true;
-  
+
     if (this.registerForm.invalid) {
       return;
     }
-  
+
     const { email, password } = this.registerForm.value;
     const reqBody = { email, password: password };
-  
+
     this.Authservice.register(reqBody).subscribe({
       next: (data) => {
         swal.fire('Thank You For Registering');
@@ -109,8 +109,4 @@ showPassword: boolean = false;
     });
   }
 
-    //Already have an account? Login Now!
-    navigateToLogin() {
-      this.router.navigate(['/login']); 
-    }
 }
