@@ -1,0 +1,13 @@
+/* Custom CSS for navbar background and hover effect */
+.navbar {
+    background-color: #6665DD; /* Background color for the navbar */
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important; /* Text color for the navbar links */
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    background-color: #9B9ECE !important; /* Background color on hover */
+}
+

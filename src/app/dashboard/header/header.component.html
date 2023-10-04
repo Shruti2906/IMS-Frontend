@@ -1,71 +1,50 @@
-<nav
-  class="navbar navbar-expand-lg bg-body-tertiary"
-  style="
-    background: radial-gradient(
-      circle,
-      rgb(220, 168, 190) 0%,
-      rgb(151, 183, 216) 100%
-    );
-  "
->
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="dashboard/course">Linkcode</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" *ngIf="getRole() === 'ADMIN'" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" *ngIf="getRole() === 'STUDENT'" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course/list-course">view courses</a>
+          <a class="nav-link active" aria-current="page" href="dashboard/course/list-course">View courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course">view enquiries</a>
+          <a class="nav-link" href="dashboard/course">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
+          <a class="nav-link" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
         </li>
       </ul>
-
     </div>
-    <div class="collapse navbar-collapse" *ngIf="getRole() === 'INSTRUCTOR'" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse"  *ngIf="getRole() === 'INSTRUCTOR'" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course/list-course">view courses</a>
+          <a class="nav-link active" aria-current="page" href="dashboard/course/list-course">View courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course">Profile</a>
+          <a class="nav-link" href="dashboard/course">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
+          <a class="nav-link" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
         </li>
       </ul>
-
     </div>
-    <div class="collapse navbar-collapse" *ngIf="getRole() === 'STUDENT'" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse"  *ngIf="getRole() === 'ADMIN'" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course/list-course">view courses</a>
+          <a class="nav-link active" aria-current="page" href="dashboard/course/list-course">View courses</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="dashboard/course">View enquiries</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard/course">Profile</a>
+          <a class="nav-link" href="dashboard/course">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
-          <!-- <a class="nav-link active" (click)="logout()" [routerLink]="['./auth/login']">Logout</a> -->
+          <a class="nav-link" (click)="logout()" [routerLink]="['../auth/login']">Logout</a>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
