@@ -46,6 +46,9 @@
       <div class="mt-2 mb-2 col-lg-10 col-10">
         <label for="message">Message:</label>
         <textarea formControlName="message" class="form-control" id="message" rows="3" placeholder="Enter Your Enquiry..."></textarea>
+        <div *ngIf="contactForm.get('message').invalid && contactForm.get('message').touched">
+          <div *ngIf="contactForm.get('message').hasError('required')" class="error">Message is required</div>
+        </div>
       </div>
     </div>
     <div class="flex">
