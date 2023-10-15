@@ -1,19 +1,9 @@
-<!-- <div style="align-items: center;">
 
-<div *ngIf="loginSuccess === true && registrationSuccess !== true" style="color: green;">
-  <h2 style="align-items: center; padding-left: 37%;">Login Successful.!</h2>
-</div>
-<div *ngIf="loginFail !== '' && registrationSuccess !== true" style="color: rgb(235, 8, 8);">
-  <h2 style="align-items: center; padding-left: 37%;">Login Failed.!</h2>
-
-</div>
-</div> -->
-
-<div class="container border shadow" style="margin-top: 2%; padding-top: 1%; height: 380px; width:25%">
+<div class="container border shadow" style="margin-top: 2%; padding-top: 1%; height: 310px; width:25%">
 
 
-      
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit1()">
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
 
 
     <div class="form-group">
@@ -23,7 +13,7 @@
         <div *ngIf="submitted1 && loginForm.controls['email1'].errors['required']">
           Enter valid Email address.
         </div>
-      </div>          
+      </div>
     </div>
 
   <div class="form-group" style="padding-top: 3%;">
@@ -35,21 +25,21 @@
     Please enter correct password.
     <div *ngIf="submitted1 && loginForm.controls['password3'].errors['required']">
     </div>
-  </div>  
-  </div> 
-  
+  </div>
+  </div>
+
 
     <!-- <div class="form-group form-check" style="padding-top: 2%;">
 
      <input type="checkbox" class="form-check-input" id="exampleCheck1">
      <label class="form-check-label" for="exampleCheck1">Remember me</label>
    </div> -->
-   <button type="submit" class="btn btn-primary" (click)="onSubmitLogin()" style="margin-top: 3%;">Login</button>
+   <button type="submit" class="btn btn-primary" style="margin-top: 3%;">Login</button>
    <br>
    <br>
 
-   Dont have an account? <a class="underlined-word" (click)="navigateToRegister()">Register</a> Now!
- 
+   Dont have an account? <a class="underlined-word" [routerLink]="['/register']">Register</a> Now!
+
  </form>
 
  </div>
