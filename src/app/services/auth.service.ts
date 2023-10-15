@@ -19,4 +19,10 @@ export class AuthService {
   logIn(data: any): Observable<any> {
     return this.http.post(`${environment.api}apis/users/login`, data);
   }
+
+  addEnquiry(data: any): Observable<any> {
+    return this.http.post(`${environment.api}apis/users/addEnquiry`, data);
+    //return this.http.post(`http://localhost:3000/apis/users/addEnquiry`, data);
+    
+  }
 }

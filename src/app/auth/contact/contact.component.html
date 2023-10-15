@@ -1,62 +1,56 @@
-<div class="container mt-5">
-  <form class="content" [formGroup]="contactForm" (ngSubmit)="submitData()">
-    <h3 class="text-center">Contact Us</h3>
-
+<div class="container">
+  <h1>Contact Us</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="addEnquiry()">
     <div class="row">
-      <!--First name-->
-    <div class="mt-2 mb-2 col-lg-5 col-5">
-      <input type="text" formControlName="firstname" class="form-control"  placeholder="First Name">
-      <div *ngIf="firstname.invalid && firstname.touched">
-        <span class="error" *ngIf="firstname.errors?.required">First Name is required</span>
-        <span class="error" *ngIf="firstname.errors?.pattern">Enter only characters</span>
-
-      </div>
-    </div>
-
-      <!--Last name-->
-    <div class="mt-2 mb-2 col-lg-5 col-5">
-      <input type="text" formControlName="lastname" class="form-control"  placeholder="Last Name">
-      <div *ngIf="lastname.invalid && lastname.touched">
-        <span class="error" *ngIf="lastname.errors?.required">Last Name is required</span>
-        <span class="error" *ngIf="lastname.errors?.pattern">Enter only characters</span>
-
-      </div>
-    </div>
-      <!--Email-->
-    <div class="mt-2 mb-2 col-lg-10 col-10">
-      <input type="email" formControlName="email" class="form-control"  placeholder="Email">
-      <div *ngIf="email.invalid && email.touched">
-        <span class="error" *ngIf="email.errors?.required">Email is required</span>
-        <span class="error" *ngIf="email.errors?.pattern">Enter Valid Email address</span>
-
-      </div>
-    </div>
-      <!--Mobile no-->
-    <div class="mt-2 mb-2 col-lg-10 col-10">
-      <input type="number"  formControlName="mobno" class="form-control"  placeholder="Mobno">
-      <div *ngIf="mobno.invalid && email.touched">
-        <span class="error" *ngIf="mobno.errors?.required">Mob no is required</span>
-        <span class="error" *ngIf="mobno.errors?.pattern">Enter Valid mobile no</span>
-
-      </div>
-    </div>
-
-    <!--Message-->
-    <div class="mt-2 mb-2 col-lg-10 col-10">
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1" ></label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="message"></textarea>
+      <!-- First name -->
+      <div class="mt-2 mb-2 col-lg-5 col-5">
+        <label for="firstname">First Name:</label>
+        <input type="text" formControlName="firstname" class="form-control" id="firstname" pattern="^[A-Za-z ]+$">
+        <div *ngIf="contactForm.get('firstname').invalid && contactForm.get('firstname').touched">
+          <div *ngIf="contactForm.get('firstname').hasError('required')" class="error">First Name is required</div>
+          <div *ngIf="contactForm?.controls?.firstname?.errors?.pattern" class="error">Enter only characters</div>
+        </div>
       </div>
 
+      <!-- Last name -->
+      <div class="mt-2 mb-2 col-lg-5 col-5">
+        <label for="lastname">Last Name:</label>
+        <input type="text" formControlName="lastname" class="form-control" id="lastname" pattern="^[A-Za-z ]+$">
+        <div *ngIf="contactForm.get('lastname').invalid && contactForm.get('lastname').touched">
+          <div *ngIf="contactForm.get('lastname').hasError('required')" class="error">Last Name is required</div>
+          <div *ngIf="contactForm?.controls?.lastname?.errors?.pattern" class="error">Enter only characters</div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mt-2 mb-2 col-lg-10 col-10">
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched">
+          <div *ngIf="contactForm.get('email').hasError('required')" class="error">Email is required</div>
+          <div *ngIf="contactForm?.controls?.email?.errors?.pattern" class="error">Enter valid Email</div>
+        </div>
+      </div>
+
+      <!-- Mobile no -->
+      <div class="mt-2 mb-2 col-lg-10 col-10">
+        <label for="mobno">Mobno:</label>
+        <input type="number" formControlName="mobno" class="form-control" id="mobno" pattern="^[6789]{1,1}[0-9]{9,9}$" minlength="10" maxlength="10">
+        <div *ngIf="contactForm.get('mobno').invalid && contactForm.get('mobno').touched">
+          <div *ngIf="contactForm.get('mobno').hasError('required')" class="error">Mob no is required</div>
+          <div *ngIf="contactForm.controls.mobno.touched && (contactForm.controls.mobno.errors?.pattern || contactForm.controls.mobno.errors?.minlength)" class="error">Enter Valid mobile no</div>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="mt-2 mb-2 col-lg-10 col-10">
+        <label for="message">Message:</label>
+        <textarea formControlName="message" class="form-control" id="message" rows="3" placeholder="Enter Your Enquiry..."></textarea>
+      </div>
     </div>
-
-
-    <!--Button-->
-
-    <div class="col-lg-10 col-10">
-      <button class="btn" [disabled]="contactForm.invalid">Submit</button>
+    <div class="flex">
+      <button class="btn btn-primary" type="submit">Submit</button>
+      <button class="btn btn-primary" type="reset" style="margin-left: 10%;">Reset</button>
     </div>
-
-  </div>
   </form>
 </div>
